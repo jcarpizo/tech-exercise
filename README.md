@@ -200,7 +200,8 @@ The GitHub Actions workflow is located at:
 
 ### 8. GitHub Workflow, Code Test Coverage
 
-![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/workflowcoverage.png)
+![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/workflow.png)
 
+![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/workflowcoverage.png)
 
 ![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/testcoverage.png)
