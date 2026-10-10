@@ -41,15 +41,6 @@ class KeyValueApiTest extends TestCase
     public function test_to_get_key_value_with_timestamp(): void
     {
         $this->createKeyValueWithTimestamp();
-
-//        $response = $this->withHeaders([
-//            'xsecret' => '123456',
-//        ])->get(
-//            route('get_key_value', [
-//                'key_name' => '4930943',
-//            ]) . '?timestamp=1649577800'
-//        );
-
         $response = $this->get(
             route('get_key_value', [
                 'key_name' => '4930943',
@@ -116,5 +107,48 @@ class KeyValueApiTest extends TestCase
         );
 
         $response->assertUnprocessable()->assertJsonValidationErrors(['payload']);
+    }
+
+    public function test_to_get_nonexistent_key_value(): void
+    {
+        $response = $this->get(
+            route('get_key_value', [
+                'key_name' => 'nonexistent_key',
+            ])
+        );
+
+        $response->assertNotFound()
+            ->assertJson([
+                'error_message' => 'Key not found.',
+            ]);
+    }
+
+    public function test_to_create_key_with_null_value(): void
+    {
+        $response = $this->postJson(
+            route('store_key_value'),
+            ['4bb6b591' => null]
+        );
+
+        $response->assertUnprocessable()
+            ->assertJsonValidationErrors(['payload']);
+    }
+
+    public function test_to_reject_multiple_key_value_pairs(): void
+    {
+        $response = $this->postJson(
+            route('store_key_value'),
+            [
+                'first_key' => 'first_value',
+                'second_key' => 'second_value',
+            ]
+        );
+
+        $response->assertUnprocessable()
+            ->assertJsonValidationErrors(['payload'])
+            ->assertJsonPath(
+                'errors.payload.0',
+                'Exactly one key-value pair is required.'
+            );
     }
 }
