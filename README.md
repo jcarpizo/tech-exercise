@@ -8,7 +8,7 @@ A Laravel REST API for storing and retrieving key-value records, supporting time
 - Laravel 13
 - MySQL 8.0
 - Composer 2
-- Pest 5
+- PHPUnit 13.4
 
 ## API Documentation
 
