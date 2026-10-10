@@ -183,3 +183,24 @@ The GitHub Actions workflow is located at:
 .github/workflows/laravel.yml
 ```
 
+
+### 7. API Screenshots
+
+### Create Key-Value
+![Create Key-Value API](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/createvalue.png)
+
+### Get Key-Value
+![Get Key-Value API](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/getkey.png)
+
+### Get by Timestamp
+![Get by Timestamp API](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/keytimestamp.png)
+
+### Get All Records
+![Get All Records API](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/allrecords.png)
+
+### 8. GitHub Workflow, Code Test Coverage
+
+![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/workflowcoverage.png)
+
+
+![GitHub Workflow](https://github.com/jcarpizo/tech-exercise/blob/master/screenshots/testcoverage.png)
