@@ -48,7 +48,7 @@ jobs:
         run: php -v
 
       - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --prefer-stable
+        run: composer install --no-interaction --prefer-dist
 
       - name: Prepare Laravel Application
         run: |
