@@ -52,7 +52,7 @@ class KeyValueController extends Controller
                 ? Cache::remember(
                     'keyvalues:all',
                     now()->addSeconds(self::CACHE_TTL),
-                    fn (): array => $this->getAllCurrentValues()
+                    fn(): array => $this->getAllCurrentValues()
                 )
                 : $this->retrieveKeyValue($keyName, $timestamp);
 
@@ -70,7 +70,7 @@ class KeyValueController extends Controller
     private function retrieveKeyValue(string $keyName, mixed $timestamp): ?array
     {
         $retrieve = function () use ($keyName, $timestamp) {
-            $record = $this->keyValueService->getKeyValue($keyName, $timestamp !== null ? (string) $timestamp : '');
+            $record = $this->keyValueService->getKeyValue($keyName, $timestamp !== null ? (string)$timestamp : '');
 
             return $record !== null ? ['value' => $record->key_value] : null;
         };
@@ -91,4 +91,3 @@ class KeyValueController extends Controller
             ->all();
     }
 }
-

@@ -26,8 +26,8 @@ class KeyValuesSeeder extends Seeder
     public function run(): void
     {
         for ($i = 0; $i <= 9; $i++) {
-            sleep(5);
-            $keyValue = substr(md5((string)mt_rand()), 0, 7);
+            sleep(1);
+            $keyValue = substr(md5((string)mt_rand()), 0, 10);
             $this->keyValueService->storeKeyValue($keyValue, $keyValue);
         }
     }
